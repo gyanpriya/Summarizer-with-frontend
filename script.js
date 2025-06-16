@@ -26,7 +26,7 @@ document.getElementById("fetchBtn").addEventListener("click", async () => {
     const data = await res.json();
 
     summaryDiv.innerHTML = `<h3>📰 Article Summaries:</h3>`;
-
+    
     data.article_summaries.forEach((item, i) => {
       const p = document.createElement("div");
       p.innerHTML = `<p><strong>${i + 1}. <a href="${item.link}" target="_blank">${item.title}</a></strong></p>
