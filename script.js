@@ -5,9 +5,10 @@ const backendURL = "https://topic-summarizer.onrender.com"; // Local backend
 
 document.getElementById("fetchBtn").addEventListener("click", async () => {
   console.log("✅ Summarize button clicked!");
-  
+
   const topic = document.getElementById("topicInput").value.trim();
   console.log("✍️ Topic entered:", topic);
+  
 
   const summaryDiv = document.getElementById("summaryOutput");
   const finalDiv = document.getElementById("finalSummary");
@@ -23,13 +24,17 @@ document.getElementById("fetchBtn").addEventListener("click", async () => {
   summaryDiv.innerHTML = `<p>Fetching and summarizing top articles for "${topic}"...</p>`;
 
   try {
+    console.log("🌐 Sending POST request to backend:", backendURL + "/summarize");
     const res = await fetch(`${backendURL}/summarize`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ topic: topic })
     });
 
+    console.log("📥 Response received:", response);
+
     const data = await res.json();
+    console.log("📄 Final summarized data:", data);
 
     summaryDiv.innerHTML = `<h3>📰 Article Summaries:</h3>`;
     
