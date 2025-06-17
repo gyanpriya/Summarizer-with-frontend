@@ -31,7 +31,7 @@ document.getElementById("fetchBtn").addEventListener("click", async () => {
       body: JSON.stringify({ topic: topic })
     });
 
-    console.log("📥 Response received:", response);
+    console.log("📥 Response received:", res);
 
     const data = await res.json();
     console.log("📄 Final summarized data:", data);
