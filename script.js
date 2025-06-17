@@ -4,7 +4,11 @@ const backendURL = "https://topic-summarizer.onrender.com"; // Local backend
 //const backendURL = "http://127.0.0.1:5000"; // Flask local backend
 
 document.getElementById("fetchBtn").addEventListener("click", async () => {
+  console.log("✅ Summarize button clicked!");
+  
   const topic = document.getElementById("topicInput").value.trim();
+  console.log("✍️ Topic entered:", topic);
+
   const summaryDiv = document.getElementById("summaryOutput");
   const finalDiv = document.getElementById("finalSummary");
 
